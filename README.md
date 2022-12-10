@@ -1,2 +1,2 @@
-# restChatPy
-A web chat program using pything REST microservices
+# restChatCpp
+A REST based web chat program using C++
