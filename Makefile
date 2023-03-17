@@ -3,6 +3,7 @@
 # sudo mkdir /var/www/html/restChatPy
 # sudo chown ubuntu /var/www/html/restChatPy
 
+
 all: PutHTML 
 
 PutHTML:

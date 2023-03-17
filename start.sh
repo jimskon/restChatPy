@@ -1,2 +1,4 @@
 #!/bin/bash
-flask --app restChat run --host=0.0.0.0 -p 5005
+export FLASK_APP=restChat
+export FLASK_ENV=development
+flask run --host=0.0.0.0 --port=5005
