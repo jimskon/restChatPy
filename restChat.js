@@ -2,20 +2,22 @@
 // Jim Skon 2022
 // Kenyon College
 
-const baseUrl = 'http://3.134.78.249:5005';
+var baseUrl = 'http://3.134.78.249:5005';
 var state="off";
 var myname="";
+var inthandle;
 
 /* Start with text input and status hidden */
 document.getElementById('chatinput').style.display = 'none';
 document.getElementById('status').style.display = 'none';
+document.getElementById('leave').style.display = 'none';
 // Action if they push the join button
-document.getElementById('name-btn').addEventListener("click", (e) => {
+document.getElementById('login-btn').addEventListener("click", (e) => {
 	join();
 })
 
 /* Set up buttons */
-document.getElementById('leave').addEventListener("click", leaveSession);
+document.getElementById('leave-btn').addEventListener("click", leaveSession);
 document.getElementById('send-btn').addEventListener("click", sendText);
 
 // Watch for enter on message box
@@ -108,8 +110,9 @@ function startSession(name){
     document.getElementById('user').innerHTML = "User: " + name;
     document.getElementById('chatinput').style.display = 'block';
     document.getElementById('status').style.display = 'block';
+    document.getElementById('leave').style.display = 'block';
     /* Check for messages every 500 ms */
-    setInterval(fetchMessage,500);
+    inthandle=setInterval(fetchMessage,500);
 }
 
 function leaveSession(){
@@ -120,7 +123,8 @@ function leaveSession(){
     document.getElementById('user').innerHTML = "";
     document.getElementById('chatinput').style.display = 'none';
     document.getElementById('status').style.display = 'none';
-
+    document.getElementById('leave').style.display = 'none';
+	clearInterval(inthandle);
 }
 
 
